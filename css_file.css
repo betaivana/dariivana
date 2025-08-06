@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle, #8B4513, #654321);
+    transition: background 1s;
+    overflow-x: hidden;
+    padding: 20px;
+    position: relative;
+}
+
+/* Background dots like in the image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(139, 69, 19, 0.8) 2px, transparent 2px);
+    background-size: 50px 50px;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    z-index: 1;
+}
+
+.cake-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin-top: 50px;
+    perspective: 1200px;
+}
+
+.cake {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateY(0deg);
+    transition: transform 0.5s ease;
+}
+
+/* Cake base (chocolate cake) */
+.cake-base {
+    position: absolute;
+    width: 280px;
+    height: 80px;
+    background: linear-gradient(135deg, #6B4423, #8B5A2B, #4A2C2A);
+    border-radius: 50%;
+    transform: translateZ(-40px);
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.3),
+        inset 0 5px 10px rgba(255,255,255,0.1);
+}
+
+/* Cake sides */
+.cake-side {
+    position: absolute;
+    width: 280px;
+    height: 80px;
+    background: linear-gradient(to bottom, #8B5A2B, #6B4423);
+    border-radius: 50%;
+    transform-origin: center bottom;
+}
+
+.cake-side1 { transform: rotateX(90deg) translateZ(40px); }
+.cake-side2 { transform: rotateX(90deg) translateZ(20px); opacity: 0.9; }
+.cake-side3 { transform: rotateX(90deg) translateZ(0px); opacity: 0.8; }
+.cake-side4 { transform: rotateX(90deg) translateZ(-20px); opacity: 0.7; }
+
+/* Icing layer (white cream) */
+.icing {
+    position: absolute;
+    width: 280px;
+    height: 20px;
+    background: linear-gradient(135deg, #FFF8E7, #F5F5DC, #FFFAF0);
+    border-radius: 50%;
+    transform: translateZ(40px);
+    box-shadow: 
+        0 -5px 15px rgba(0,0,0,0.2),
+        inset 0 2px 5px rgba(255,255,255,0.8),
+        0 5px 20px rgba(255,255,255,0.3);
+    border: 3px solid #F0E68C;
+}
+
+/* Decorative icing waves */
+.icing::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, transparent 60%, #F0E68C 70%, transparent 80%);
+    top: 0;
+    left: 0;
+}
+
+/* Candle */
+.candle {
+    position: absolute;
+    width: 12px;
+    height: 60px;
+    background: linear-gradient(to bottom, #FFF8DC, #F5DEB3);
+    border-radius: 6px;
+    top: -60px;
+    left: 50%;
+    margin-left: -6px;
+    transform: translateZ(50px);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.candle::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+    top: -4px;
+    left: 2px;
+}
+
+/* Flame */
+.flame {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(to top, #FF4500, #FF6347, #FFD700, #FFFFE0);
+    border-radius: 50% 50% 20% 20%;
+    top: -30px;
+    left: -4px;
+    box-shadow: 
+        0 0 15px #FF6347, 
+        0 0 25px #FF4500,
+        inset 0 0 10px rgba(255,255,255,0.3);
+    opacity: 1;
+    transform-origin: 50% 100%;
+    animation: flicker 1.5s infinite alternate;
+    transform: translateZ(5px);
+}
+
+.flame.out {
+    opacity: 0;
+    transform: translateZ(5px) scale(0);
+    animation: none;
+    transition: all 0.5s ease;
+}
+
+/* Cake message on top */
+.cake-message {
+    position: absolute;
+    width: 220px;
+    text-align: center;
+    top: 10px;
+    left: 50%;
+    margin-left: -110px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8B4513;
+    transform: translateZ(45px);
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+    z-index: 10;
+    line-height: 1.2;
+    padding: 5px;
+}
+
+/* Love letter message */
+.message {
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    z-index: 20;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    top: 50%;
+    margin-top: -150px;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message h2 {
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.message p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Click instruction */
+.click-instruction {
+    margin-top: 30px;
+    color: #FFE4B5;
+    font-weight: bold;
+    text-align: center;
+    animation: pulse 2s infinite;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Animations */
+@keyframes flicker {
+    0%, 100% {
+        transform: translateZ(5px) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateZ(5px) scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* Confetti */
+.floating-confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    animation: float 6s linear forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .cake-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .cake {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .cake-base, .cake-side, .icing {
+        width: 240px;
+    }
+    
+    .cake-message {
+        width: 180px;
+        margin-left: -90px;
+        font-size: 14px;
+    }
+    
+    .message {
+        padding: 20px;
+        font-size: 16px;
+        margin: 0 10px;
+    }
+    
+    .message h2 {
+        font-size: 20px;
+    }
+    
+    .click-instruction {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cake-container {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .cake {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .cake-base, .cake-side, .icing {
+        width: 200px;
+    }
+    
+    .cake-message {
+        width: 150px;
+        margin-left: -75px;
+        font-size: 12px;
+    }
+}
