@@ -19,29 +19,23 @@ let letterVisible = false;
 
 function toggleCandle() {
   letterVisible = !letterVisible;
-  
+
   if (letterVisible) {
     flame.style.display = 'none';
-    fadeOutMusic();
-    letter.innerHTML = ''; // reset isi surat
+    letter.innerHTML = '';
     letter.style.display = 'block';
+
+    // Start music from beginning
+    music.currentTime = 0;
+    music.volume = 0.5;
+    music.play();
+
     typeWriter(letter, message, 0);
   } else {
     flame.style.display = 'block';
     letter.style.display = 'none';
-    music.volume = 0.5; // balikin volume musik
+    music.pause();
   }
-}
-
-function fadeOutMusic() {
-  const fade = setInterval(() => {
-    if (music.volume > 0.05) {
-      music.volume -= 0.05;
-    } else {
-      music.volume = 0;
-      clearInterval(fade);
-    }
-  }, 200);
 }
 
 function typeWriter(element, text, i) {
