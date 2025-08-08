@@ -1,17 +1,14 @@
 body {
   margin: 0;
-  background-color: #311400; /* sesuai permintaan */
+  background-color: #311400;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: sans-serif;
 }
 
 .wrapper {
-  position: relative;
   text-align: center;
-  padding: 20px;
 }
 
 .cake-container {
@@ -21,45 +18,41 @@ body {
 }
 
 .cake-img {
-  width: 90vw;
-  max-width: 400px;
+  width: 300px;
   height: auto;
-  display: block;
 }
 
 .flame {
   position: absolute;
-  top: 91px; /* geser api ke bawah biar nempel ke sumbu lilin */
+  top: 27%; /* geser api ke sumbu */
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 28px;
-  background: radial-gradient(ellipse at center, #fff07c 0%, #ff9800 50%, #ff4500 75%, transparent 100%);
+  width: 10px;
+  height: 20px;
+  background: radial-gradient(ellipse at center, #ffcc00 0%, #ff9900 70%, #ff6600 100%);
   border-radius: 50% 50% 40% 40%;
-  animation: flicker 0.18s infinite alternate ease-in-out;
-  opacity: 0.95;
-  filter: blur(0.5px);
-  box-shadow: 0 0 20px #ffb347, 0 0 40px #ff9800;
-  z-index: 10;
+  opacity: 0.9;
+  animation: flicker 0.15s infinite alternate;
+  box-shadow: 0 0 10px 4px rgba(255, 140, 0, 0.6);
 }
 
 @keyframes flicker {
-  0% { transform: translateX(-50%) scale(1) rotate(-1deg); opacity: 0.9; }
-  50% { transform: translateX(-50%) scale(1.1) rotate(1deg); opacity: 1; }
-  100% { transform: translateX(-50%) scale(0.95) rotate(-1.5deg); opacity: 0.85; }
+  from {
+    transform: translateX(-50%) scale(1) rotate(-2deg);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateX(-50%) scale(1.1) rotate(2deg);
+    opacity: 1;
+  }
 }
 
 .letter {
-  margin-top: 20px;
-  padding: 15px;
-  max-width: 90vw;
-  background: #f6f1e9;
-  color: #2d2d2d;
+  margin-top: 30px;
   font-family: 'Courier Prime', monospace;
-  font-size: 1rem;
-  white-space: pre-line;
-  text-align: left;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  color: #fcebd5;
+  white-space: pre-wrap;
+  padding: 0 20px;
   display: none;
 }
