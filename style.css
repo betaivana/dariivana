@@ -1,3 +1,4 @@
+/* GLOBAL */
 body {
   margin: 0;
   background-color: #311400;
@@ -5,12 +6,26 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: 'Courier Prime', monospace;
+  color: #fcebd5;
 }
 
 .wrapper {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* OPENING */
+.opening-text {
+  font-size: 1.5rem;
+  animation: fadeInOut 2.5s ease-in-out;
+}
+
+/* CAKE + LILIN */
 .cake-container {
   position: relative;
   display: inline-block;
@@ -24,7 +39,7 @@ body {
 
 .flame {
   position: absolute;
-  top: 27%; /* geser api ke sumbu */
+  top: 27%; /* sesuaikan biar nempel di sumbu */
   left: 50%;
   transform: translateX(-50%);
   width: 10px;
@@ -36,6 +51,7 @@ body {
   box-shadow: 0 0 10px 4px rgba(255, 140, 0, 0.6);
 }
 
+/* FLAME ANIMATION */
 @keyframes flicker {
   from {
     transform: translateX(-50%) scale(1) rotate(-2deg);
@@ -47,38 +63,58 @@ body {
   }
 }
 
+/* PETUNJUK */
+.click-hint {
+  color: #ffdbab;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* LETTER */
 .letter {
   margin-top: 30px;
-  font-family: 'Courier Prime', monospace;
   font-size: 1.2rem;
-  color: #fcebd5;
   white-space: pre-wrap;
   padding: 0 20px;
   display: none;
 }
 
-.opening-text {
-  color: #ffe5c2;
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 30vh;
-  animation: fadeInOut 2.5s ease-in-out;
+/* ENVELOPE */
+.envelope {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideIn 1s ease forwards;
+  cursor: pointer;
 }
 
-.click-hint {
-  color: #ffdbab;
+.envelope-flap {
+  width: 100px;
+  height: 50px;
+  background: #fcebd5;
+  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+  margin-bottom: -10px;
+}
+
+.envelope-body {
+  width: 100px;
+  height: 60px;
+  background: #fcebd5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.8rem;
-  text-align: center;
-  margin-top: 10px;
-  font-family: 'Courier Prime', monospace;
-  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 4px;
 }
 
+/* HIDDEN CLASS */
 .hidden {
   display: none;
 }
 
+/* ANIMATIONS */
 @keyframes fadeInOut {
   0% { opacity: 0; }
   30% { opacity: 1; }
@@ -86,3 +122,13 @@ body {
   100% { opacity: 0; }
 }
 
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
