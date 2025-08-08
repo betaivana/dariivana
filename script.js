@@ -1,9 +1,10 @@
+const opening = document.getElementById('opening');
+const cakeContainer = document.getElementById('cakeContainer');
 const flame = document.getElementById('flame');
 const letter = document.getElementById('letter');
-const music = document.getElementById('bg-music');
-const cakeContainer = document.querySelector('.cake-container');
-const opening = document.getElementById('opening');
 const clickHint = document.getElementById('clickHint');
+const envelope = document.getElementById('envelope');
+const music = document.getElementById('bg-music');
 
 const message = `Dear you,
 
@@ -18,37 +19,35 @@ You’re still my favorite distraction.
 
 – always, someone you can’t read completely.`;
 
-let letterVisible = false;
+let stage = 0;
 
-// Show cake after opening
-window.onload = () => {
-  setTimeout(() => {
+document.body.addEventListener('click', () => {
+  if (stage === 0) {
+    // step 1: buka kue
     opening.style.display = 'none';
     cakeContainer.classList.remove('hidden');
-  }, 2500);
-};
-
-function toggleCandle() {
-  letterVisible = !letterVisible;
-
-  if (letterVisible) {
-    flame.style.display = 'none';
-    letter.innerHTML = '';
-    letter.style.display = 'block';
-
     music.currentTime = 0;
     music.volume = 0.5;
     music.play();
-
-    typeWriter(letter, message, 0);
-
-    // Hide hint
-    clickHint.style.display = 'none';
-  } else {
-    flame.style.display = 'block';
-    letter.style.display = 'none';
-    music.pause();
+    stage++;
+  } else if (stage === 1) {
+    // step 2: tiup lilin
+    flame.style.display = 'none';
+    clickHint.innerText = 'klik buat buka hadiah dari aku';
+    stage++;
+  } else if (stage === 2) {
+    // step 3: munculin amplop
+    cakeContainer.classList.add('hidden');
+    envelope.classList.remove('hidden');
+    stage++;
   }
+});
+
+function openEnvelope() {
+  envelope.classList.add('hidden');
+  letter.innerHTML = '';
+  letter.style.display = 'block';
+  typeWriter(letter, message, 0);
 }
 
 function typeWriter(element, text, i) {
