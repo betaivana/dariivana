@@ -10,14 +10,20 @@
 <body>
   <div class="wrapper">
 
-    <!-- Opening text -->
+    <!-- Opening -->
     <div id="opening" class="opening-text">hari ini hari apa ya bub?</div>
 
-    <!-- Cake section -->
-    <div class="cake-container hidden" onclick="toggleCandle()">
+    <!-- Cake Section -->
+    <div class="cake-container hidden" id="cakeContainer">
       <img src="cake.png" alt="Birthday Cake" class="cake-img" />
       <div class="flame" id="flame"></div>
-      <div class="click-hint" id="clickHint">klik di manapun</div>
+      <div class="click-hint" id="clickHint">klik buat tiup lilinnya</div>
+    </div>
+
+    <!-- Envelope -->
+    <div class="envelope hidden" id="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body" onclick="openEnvelope()">💌 klik untuk buka</div>
     </div>
 
     <!-- Letter -->
