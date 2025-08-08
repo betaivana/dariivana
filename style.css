@@ -56,3 +56,33 @@ body {
   padding: 0 20px;
   display: none;
 }
+
+.opening-text {
+  color: #ffe5c2;
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 30vh;
+  animation: fadeInOut 2.5s ease-in-out;
+}
+
+.click-hint {
+  color: #ffdbab;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Courier Prime', monospace;
+  opacity: 0.8;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
