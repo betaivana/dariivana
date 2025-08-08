@@ -29,20 +29,33 @@ body {
 
 .flame {
   position: absolute;
-  top: 30px;
+  top: 76px; /* Sesuaikan biar nempel ke sumbu */
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 40px;
-  background: radial-gradient(ellipse at center, #ffaa00 0%, #ff5500 80%, transparent 100%);
-  border-radius: 50%;
-  animation: flicker 1s infinite ease-in-out;
-  opacity: 0.8;
+  width: 12px;
+  height: 30px;
+  background: radial-gradient(ellipse at center, #fff07c 0%, #ff9800 50%, #ff4500 70%, transparent 100%);
+  border-radius: 50% 50% 40% 40%;
+  animation: flicker 0.18s infinite alternate ease-in-out;
+  opacity: 0.95;
+  filter: blur(0.5px);
+  z-index: 10;
 }
 
 @keyframes flicker {
-  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-  50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+  0% {
+    transform: translateX(-50%) scale(1) rotate(-1deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1) rotate(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.95) rotate(-1.5deg);
+    opacity: 0.85;
+  }
+}
 }
 
 .letter {
