@@ -19,14 +19,17 @@ let letterVisible = false;
 
 function toggleCandle() {
   letterVisible = !letterVisible;
+  
   if (letterVisible) {
     flame.style.display = 'none';
     fadeOutMusic();
+    letter.innerHTML = ''; // reset isi surat
+    letter.style.display = 'block';
     typeWriter(letter, message, 0);
   } else {
     flame.style.display = 'block';
     letter.style.display = 'none';
-    music.volume = 0.5;
+    music.volume = 0.5; // balikin volume musik
   }
 }
 
@@ -42,7 +45,6 @@ function fadeOutMusic() {
 }
 
 function typeWriter(element, text, i) {
-  element.style.display = 'block';
   if (i < text.length) {
     element.innerHTML += text.charAt(i);
     setTimeout(() => typeWriter(element, text, i + 1), 30);
