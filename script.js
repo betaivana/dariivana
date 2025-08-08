@@ -1,6 +1,9 @@
 const flame = document.getElementById('flame');
 const letter = document.getElementById('letter');
 const music = document.getElementById('bg-music');
+const cakeContainer = document.querySelector('.cake-container');
+const opening = document.getElementById('opening');
+const clickHint = document.getElementById('clickHint');
 
 const message = `Dear you,
 
@@ -17,6 +20,14 @@ You’re still my favorite distraction.
 
 let letterVisible = false;
 
+// Show cake after opening
+window.onload = () => {
+  setTimeout(() => {
+    opening.style.display = 'none';
+    cakeContainer.classList.remove('hidden');
+  }, 2500);
+};
+
 function toggleCandle() {
   letterVisible = !letterVisible;
 
@@ -25,12 +36,14 @@ function toggleCandle() {
     letter.innerHTML = '';
     letter.style.display = 'block';
 
-    // Start music from beginning
     music.currentTime = 0;
     music.volume = 0.5;
     music.play();
 
     typeWriter(letter, message, 0);
+
+    // Hide hint
+    clickHint.style.display = 'none';
   } else {
     flame.style.display = 'block';
     letter.style.display = 'none';
