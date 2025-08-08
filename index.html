@@ -9,10 +9,18 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="cake-container" onclick="toggleCandle()">
+
+    <!-- Opening text -->
+    <div id="opening" class="opening-text">hari ini hari apa ya bub?</div>
+
+    <!-- Cake section -->
+    <div class="cake-container hidden" onclick="toggleCandle()">
       <img src="cake.png" alt="Birthday Cake" class="cake-img" />
       <div class="flame" id="flame"></div>
+      <div class="click-hint" id="clickHint">klik di manapun</div>
     </div>
+
+    <!-- Letter -->
     <div class="letter" id="letter"></div>
   </div>
 
