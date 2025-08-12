@@ -42,7 +42,7 @@ body {
 
 .flame {
   position: absolute;
-  top: 24%;
+  top: 20%; /* geser ke atas dari 24% */
   left: 50%;
   transform: translateX(-50%);
   width: 12px;
