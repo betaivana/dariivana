@@ -30,19 +30,19 @@ body {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  transform: scale(1.25); /* zoom 25% biar lebih gede */
+  transform: scale(1.25); /* zoom default */
   transform-origin: center;
 }
 
 .cake-img {
   width: 300px;
-  max-width: 85vw; /* biar pas di layar HP */
+  max-width: 85vw; /* biar pas di HP */
   height: auto;
 }
 
 .flame {
   position: absolute;
-  top: 24%; /* sedikit turun setelah zoom */
+  top: 24%;
   left: 50%;
   transform: translateX(-50%);
   width: 12px;
@@ -83,33 +83,47 @@ body {
   display: none;
 }
 
-/* ENVELOPE */
+/* ENVELOPE (Gambar surat.png) */
 .envelope {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: slideIn 1s ease forwards;
+  animation: bounceIn 1s ease forwards;
   cursor: pointer;
 }
 
-.envelope-flap {
-  width: 100px;
-  height: 50px;
-  background: #fcebd5;
-  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
-  margin-bottom: -10px;
+.envelope-body {
+  width: 140px;
+  height: auto;
+  background: url('surat.png') center/contain no-repeat;
+  aspect-ratio: 2 / 1;
+  animation: wobble 1.5s ease-in-out infinite;
 }
 
-.envelope-body {
-  width: 100px;
-  height: 60px;
-  background: #fcebd5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  border-radius: 4px;
+/* ANIMASI AMPlOP MASUK */
+@keyframes bounceIn {
+  0% {
+    transform: translateY(150px) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ANIMASI GOYANG */
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(1deg); }
 }
 
 /* HIDDEN CLASS */
@@ -125,23 +139,15 @@ body {
   100% { opacity: 0; }
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 /* RESPONSIVE UNTUK HP */
 @media (max-width: 768px) {
   .cake-container {
-    transform: scale(1.4); /* di HP zoom lebih besar */
+    transform: scale(1.4); /* zoom lebih besar di HP */
   }
   .flame {
-    top: 23%; /* koreksi posisi lilin */
+    top: 23%;
+  }
+  .envelope-body {
+    width: 160px; /* sedikit lebih besar di HP */
   }
 }
