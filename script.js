@@ -19,7 +19,7 @@ Aku tidak bisa berlama-lama, karena sebentar lagi mungkin aku akan melanjutkan h
 
 Tolong, jangan lupakan aku. Jangan pula membiarkan energiku menghambat langkahmu. Aku sangat sayang sama Zhafir.  
 
-Terima kasih hingga kapanpun untuk segala hal yang sudah kamu bagi bersamaku, maaf karena sejauh ini aku masih menjadi ivana dengan 2 tangan kecil yang tidak bisa berbuat banyak ini.
+Terima kasih hingga kapanpun untuk segala hal yang sudah kamu bagi bersamaku, maaf karena sejauh ini aku masih menjadi ivana dengan 2 tangan kecil yang tidak bisa berbuat banyak.
 
 Jiwamu tua, ambisimu masih membara. Itu sesuatu yang langka dan berharga, tidak semua orang dititipkan kekuatan semacam itu.  
 Kudoakan takdirmu dilembutkan di usia ini dan seterusnya.  
