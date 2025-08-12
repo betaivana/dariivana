@@ -42,7 +42,7 @@ body {
 
 .flame {
   position: absolute;
-  top: 4%; /* pas di laptop */
+  top: 4%; /* posisi api di laptop */
   left: 50%;
   transform: translateX(-50%);
   width: 12px;
@@ -145,7 +145,7 @@ body {
     transform: scale(1.4); /* zoom lebih besar di HP */
   }
   .flame {
-    top: 0%; /* lebih ke atas dibanding sebelumnya */
+    top: 1%; /* turun tipis dari 0% supaya pas */
   }
   .envelope-body {
     width: 160px; /* sedikit lebih besar di HP */
