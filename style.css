@@ -145,7 +145,7 @@ body {
     transform: scale(1.4); /* zoom lebih besar di HP */
   }
   .flame {
-    top: 12%; /* turun banyak biar pas di HP */
+    top: 13%; /* naik sedikit dari 12%, kompromi */
   }
   .envelope-body {
     width: 160px; /* sedikit lebih besar di HP */
