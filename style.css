@@ -30,20 +30,23 @@ body {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  transform: scale(1.25); /* zoom 25% biar lebih gede */
+  transform-origin: center;
 }
 
 .cake-img {
   width: 300px;
+  max-width: 85vw; /* biar pas di layar HP */
   height: auto;
 }
 
 .flame {
   position: absolute;
-  top: 27%; /* sesuaikan biar nempel di sumbu */
+  top: 24%; /* sedikit turun setelah zoom */
   left: 50%;
   transform: translateX(-50%);
-  width: 10px;
-  height: 20px;
+  width: 12px;
+  height: 24px;
   background: radial-gradient(ellipse at center, #ffcc00 0%, #ff9900 70%, #ff6600 100%);
   border-radius: 50% 50% 40% 40%;
   opacity: 0.9;
@@ -130,5 +133,15 @@ body {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* RESPONSIVE UNTUK HP */
+@media (max-width: 768px) {
+  .cake-container {
+    transform: scale(1.4); /* di HP zoom lebih besar */
+  }
+  .flame {
+    top: 23%; /* koreksi posisi lilin */
   }
 }
