@@ -42,7 +42,7 @@ body {
 
 .flame {
   position: absolute;
-  top: 9%; /* dinaikkan jauh supaya pas di ujung lilin */
+  top: 4%; /* dinaikkan maksimal supaya pas di ujung lilin */
   left: 50%;
   transform: translateX(-50%);
   width: 12px;
@@ -145,7 +145,7 @@ body {
     transform: scale(1.4); /* zoom lebih besar di HP */
   }
   .flame {
-    top: 12%; /* di HP tetap agak turun biar pas */
+    top: 7%; /* dinaikkan juga di HP */
   }
   .envelope-body {
     width: 160px; /* sedikit lebih besar di HP */
