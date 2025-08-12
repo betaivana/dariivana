@@ -42,7 +42,7 @@ body {
 
 .flame {
   position: absolute;
-  top: 20%; /* geser ke atas dari 24% */
+  top: 17%; /* geser lebih ke atas */
   left: 50%;
   transform: translateX(-50%);
   width: 12px;
@@ -145,7 +145,7 @@ body {
     transform: scale(1.4); /* zoom lebih besar di HP */
   }
   .flame {
-    top: 23%;
+    top: 20%; /* sedikit turun di HP biar pas */
   }
   .envelope-body {
     width: 160px; /* sedikit lebih besar di HP */
